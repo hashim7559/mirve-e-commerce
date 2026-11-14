@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Login | Mirvè</title>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+</head>
+<body>
+
+  <div class="login-wrapper">
+
+    <div class="login-card">
+      <h1 class="brand">Mirvè</h1>
+      <p class="subtitle">Login to continue</p>
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Enter your email">
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter your password">
+      <!-- INLINE MESSAGE -->
+      <p id="login-message" class="login-message"></p>
+
+      <!-- IMPORTANT: ID unchanged -->
+      <button id="loginBtn" class="login-btn">
+        Login
+      </button>
+      
+      <p class="signup-text">
+        New user?
+        <a href="signup.html">Signup</a>
+      </p>
+    </div>
+
+  </div>
+
+<script>
+  const loginBtn = document.getElementById("loginBtn");
+  const messageEl = document.getElementById("login-message");
+
+  loginBtn.addEventListener("click", async () => {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    messageEl.style.display = "none";
+    messageEl.className = "login-message";
+
+    if (!email || !password) {
+      messageEl.textContent = "All fields are required";
+      messageEl.classList.add("error");
+      messageEl.style.display = "block";
+      return;
+    }
+
+    // 🔄 Loading ON
+    loginBtn.classList.add("loading");
+    loginBtn.innerHTML = `<span class="spinner"></span> Logging in`;
+
+    try {
+      const res = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("userToken", data.token);
+        messageEl.textContent = "Login successful! Redirecting…";
+        messageEl.classList.add("success");
+        messageEl.style.display = "block";
+
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 900);
+      } else {
+        throw new Error(data.message || "Login failed");
+      }
+    } catch (err) {
+      messageEl.textContent = err.message || "Server error";
+      messageEl.classList.add("error");
+      messageEl.style.display = "block";
+
+      // 🔄 Loading OFF
+      loginBtn.classList.remove("loading");
+      loginBtn.innerHTML = "Login";
+    }
+  });
+</script>
+
+
+</body>
+</html>

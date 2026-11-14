@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Checkout | Mirvè</title>
+    <link rel="stylesheet" href="css/checkout.css" />
+    <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="checkout-header">
+      <h1>Mirvè</h1>
+    </header>
+
+    <!-- Main Checkout -->
+    <div class="checkout-container">
+      <!-- LEFT SIDE -->
+      <div class="checkout-left">
+        <!-- Delivery Details -->
+        <div class="card">
+          <h2>Delivery Details</h2>
+
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Full Name" />
+
+          <label>Phone</label>
+          <input type="text" id="phone" placeholder="Phone Number" />
+
+          <label>Address</label>
+          <textarea id="address" placeholder="Delivery Address"></textarea>
+
+          <label>Pincode</label>
+          <input type="text" id="pincode" placeholder="Pin code" />
+        </div>
+
+        <!--Payment Method-->
+        <div class="card">
+          <h2>Payment Method</h2>
+
+          <div class="payment-option">
+            <input type="radio" checked />
+            <span>Cash on Delivery</span>
+          </div>
+
+          <div class="payment-option disabled">
+            <input type="radio" disabled />
+            <span>UPI (Coming Soon)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="checkout-right">
+        <!-- Order Summary -->
+        <div class="card">
+          <h2>Order Summary</h2>
+
+          <!-- IMPORTANT: JS USES THIS -->
+          <div id="order-summary"></div>
+
+          <div class="summary-row">
+            <span>Delivery</span>
+            <span>₹<span id="delivery-charge">60</span></span>
+          </div>
+
+          <hr />
+
+          <div class="total-row">
+            <span>Total</span>
+            <span>₹<span id="total">0</span></span>
+          </div>
+
+          <!-- IMPORTANT: JS USES THIS -->
+          <button id="place-order" class="place-order-btn">Place Order</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>

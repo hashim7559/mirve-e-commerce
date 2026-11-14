@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Account | Mirvè</title>
+<link rel="stylesheet" href="css/profile.css">
+<link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+</head>
+
+<body>
+
+<div class="topbar">
+  <h2>Mirvè</h2>
+</div>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <div class="dashboard-menu">
+    <h3>My Account</h3>
+
+    <button onclick="showSection('profile')">👤 Profile</button>
+    <button onclick="goOrders()">📦 My Orders</button>
+    <button>❤️ Wishlist</button>
+    <button>📍 Address</button>
+    <button>⚙ Account Settings</button>
+    <button onclick="logout()">🚪 Logout</button>
+
+  </div>
+
+  <!-- Content -->
+  <div class="dashboard-content">
+
+    <div id="profile-section">
+
+      <h2>Profile Information</h2>
+
+      <p><strong>Name:</strong> <span id="user-name"></span></p>
+      <p><strong>Email:</strong> <span id="user-email"></span></p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/profile.js"></script>
+
+</body>
+</html>

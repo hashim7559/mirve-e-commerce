@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clothing Store</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+  <span class="menu-btn" onclick="toggleSidebar()">☰</span>
+
+  <h2 class="logo">Mirvè</h2>
+
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+
+  <a href="index.html">Home</a>
+  <a href="cart.html">Cart</a>
+  <a href="my-orders.html">My Orders</a>
+  <a href="checkout.html">Checkout</a>
+  <a href="profile.html">Profile</a>
+
+</div>
+<!-- SEARCH BAR -->
+<div class="search-bar">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search products by name or category..."
+    onkeyup="searchProducts()"
+  />
+</div>
+
+<div class="category-buttons">
+
+  <div class="category-card" onclick="filterCategory('kurtis')">
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1766866451/products/t1zny9vimvewfxwhe5ns.webp">
+    <p>Kurtis</p>
+  </div>
+
+  <div class="category-card" onclick="filterCategory('unisex')">
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773607945/unisex_krrvmq.jpg">
+    <p>Unisex</p>
+  </div>
+
+  <div class="category-card" onclick="filterCategory('t-shirts')">
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773607945/tshirt_mwnbkz.webp">
+    <p>T-Shirt</p>
+  </div>
+
+</div>
+
+<!--carosil effect -->
+
+<div class="slider">
+
+  <div class="slides">
+
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773610651/slide1_zwn1xb.png" class="slide active">
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773615738/slide2_scfaep.jpg" class="slide">
+    <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773615987/slide_3_lkei1o.jpg" class="slide">
+
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="prev" onclick="changeSlide(-1)">❮</button>
+  <button class="next" onclick="changeSlide(1)">❯</button>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span class="dot active" onclick="setSlide(0)"></span>
+    <span class="dot" onclick="setSlide(1)"></span>
+    <span class="dot" onclick="setSlide(2)"></span>
+  </div>
+
+</div>
+
+
+ <main>
+
+  <section id="kurtis-section">
+    <h2>Kurtis</h2>
+    <div id="kurtis-products" class="product-grid"></div>
+  </section>
+
+  <section id="unisex-section">
+    <h2>Unisex</h2>
+    <div id="unisex-products" class="product-grid"></div>
+  </section>
+
+  <section id="tshirts-section">
+    <h2>T-Shirts</h2>
+    <div id="tshirts-products" class="product-grid"></div>
+  </section>
+
+</main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

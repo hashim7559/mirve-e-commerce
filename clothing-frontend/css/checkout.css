@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f6f6f2;
+}
+
+/* Header */
+.checkout-header {
+  background: #fff;
+  padding: 16px;
+  text-align: center;
+  font-size: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Layout */
+.checkout-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  display: flex;
+  gap: 20px;
+  padding: 0 16px;
+}
+
+.checkout-left {
+  flex: 2;
+}
+
+.checkout-right {
+  flex: 1;
+}
+
+/* Card */
+.card {
+  background: #e4e6d9;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 80px;
+}
+
+/*payment */
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.payment-option.disabled {
+  opacity: 0.5;
+}
+
+/* Order summary items (JS injected) */
+#order-summary p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+/* Total */
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Button */
+.place-order-btn {
+  width: 100%;
+  padding: 12px;
+  background: #8f946b;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.place-order-btn:hover {
+  background: #7a7f59;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+  .checkout-header{
+    padding: 8px;
+  }
+}
+

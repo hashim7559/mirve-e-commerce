@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Orders | Mirvè</title>
+<link rel="stylesheet" href="css/my-orders.css">
+<link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+
+</head>
+
+<body>
+
+<div class="orders-wrapper">
+
+<div class="orders-card">
+
+<h1 class="brand">Mirvè</h1>
+<p class="subtitle">My Orders</p>
+
+<div id="orders"></div>
+
+</div>
+</div>
+
+<script>
+
+const token = localStorage.getItem("userToken");
+
+if (!token) {
+  alert("Please login first");
+  window.location.href = "login.html";
+}
+
+async function loadMyOrders() {
+
+  try {
+
+    const res = await fetch("http://localhost:5000/api/orders/my", {
+      headers:{
+        Authorization:"Bearer "+token
+      }
+    });
+
+    const orders = await res.json();
+    const ordersDiv = document.getElementById("orders");
+
+    if(orders.length === 0){
+      ordersDiv.innerHTML="<p>No orders yet</p>";
+      return;
+    }
+
+    orders.forEach(order=>{
+
+      const div=document.createElement("div");
+
+      const statusClass =
+      order.status==="Delivered"?"delivered":"pending";
+
+      div.classList.add("order");
+
+      div.innerHTML=`
+
+      <div class="order-id">
+      Order ID: ${order._id}
+      </div>
+
+      <div class="status ${statusClass}">
+      Status: ${order.status}
+      </div>
+
+      <div class="total">
+      Total: ₹${order.totalAmount}
+      </div>
+
+      `;
+
+      ordersDiv.appendChild(div);
+
+    });
+
+  } catch(err){
+    console.error(err);
+    alert("Failed to load orders");
+  }
+
+}
+
+loadMyOrders();
+
+</script>
+
+</body>
+</html>

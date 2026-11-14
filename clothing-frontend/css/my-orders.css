@@ -1,0 +1,69 @@
+*{
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body{
+  margin:0;
+  background:#f6f6f2;
+  min-height:100vh;
+}
+
+/* Wrapper */
+.orders-wrapper{
+  width:100%;
+  padding:30px;
+}
+
+/* Card */
+.orders-card{
+  max-width:700px;
+  margin:auto;
+  background:#e4e6d9;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Title */
+.brand{
+  text-align:center;
+  margin:0;
+  font-size:28px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#555;
+  margin-bottom:25px;
+}
+
+/* Order box */
+.order{
+  background:#f6f6f2;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+.order-id{
+  font-weight:bold;
+}
+
+.status{
+  margin-top:5px;
+}
+
+.total{
+  margin-top:5px;
+  font-weight:bold;
+}
+
+/* Status colors */
+.pending{
+  color:#c98a00;
+}
+
+.delivered{
+  color:#2e7d32;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Login | Mirvè</title>
+  <link rel="stylesheet" href="css/admin-login.css" />
+  <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="login-card">
+
+      <h1 class="brand">Mirvè</h1>
+      <p class="subtitle">Admin Panel Login</p>
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Email " />
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="••••••••" />
+
+      <button onclick="login()">Login</button>
+
+    </div>
+  </div>
+
+  <script>
+    async function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      if (!email || !password) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      const res = await fetch("http://localhost:5000/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("adminToken", data.token);
+        window.location.href = "admin.html";
+      } else {
+        alert(data.message || "Login failed");
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Admin - Orders</title>
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+  </head>
+  <body>
+    <header class="admin-header">
+      <div class="header-top">
+        <img src="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png" class="admin-avatar" />
+        <h1>Mirvè</h1>
+      </div>
+
+      <nav class="admin-nav">
+        <button onclick="showSection('orders',this)" class="nav-btn active">
+          Orders
+        </button>
+        <button onclick="showSection('products',this)" class="nav-btn">
+          Add Product
+        </button>
+        <button onclick="showSection('inventory',this)" class="nav-btn">
+          Inventory
+        </button>
+        <button onclick="showSection('users',this)" class="nav-btn">Users</button>
+      </nav>
+    </header>
+
+    <!-- SECTIONS -->
+
+    <section id="orders" class="admin-section">
+      <div id="orders"></div>
+    </section>
+
+    <section id="products" class="admin-section hidden">
+      <!-- ADD PRODUCT CARD -->
+      <div class="admin-card add-product-card">
+        <h2>Add New Product’s</h2>
+        <div class="form-row">
+          <label>Name :</label>
+          <input id="pName" />
+        </div>
+        <div class="form-row">
+          <label>Category :</label>
+          <select id="pCategory">
+            <option>Kurtis</option>
+            <option>Unisex</option>
+            <option>T-shirts</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Price :</label>
+          <input id="pPrice" type="number" />
+        </div>
+
+        <div class="form-row">
+          <label>Description :</label>
+          <textarea id="pDesc"></textarea>
+        </div>
+
+        <h3>Variants (size and stock)</h3>
+
+        <div id="variantsContainer">
+          <div class="variantRow">
+            <span>Size :</span>
+
+            <select class="variantSize" style="max-width: 50px">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+
+            <span>Stock :</span>
+
+            <input
+              type="number"
+              class="variantStock"
+              style="max-width: 30px"
+              min="0"
+            />
+          </div>
+        </div>
+
+        <button class="ghost-btn" onclick="addVariantRow()">
+          + Add another size
+        </button>
+
+        <h3>Photo upload</h3>
+        <div class="file-upload">
+          <label for="images" class="file-btn"> Choose Files </label>
+
+          <span id="fileCount">No files</span>
+
+          <input
+            type="file"
+            id="images"
+            multiple
+            accept="image/*"
+            onchange="previewSelectedImages()"
+            hidden
+          />
+        </div>
+
+        <div id="imagePreviewContainer"></div>
+
+        <button class="primary-btn" onclick="addProduct()">Add Product</button>
+      </div>
+
+      <!-- ALL PRODUCTS -->
+      <h2 class="section-title">All Product’s</h2>
+      <div id="admin-products"></div>
+    </section>
+
+    <section id="inventory" class="admin-section hidden">
+      <h2>Inventory</h2>
+      <div id="inventoryList"></div>
+    </section>
+
+    <section id="users" class="admin-section hidden">
+      <!-- Users UI -->
+      <h2>Users</h2>
+      <div id="users"></div>
+    </section>
+
+    <script src="js/admin.js"></script>
+  </body>
+</html>

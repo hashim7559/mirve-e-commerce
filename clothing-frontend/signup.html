@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Signup | Mirvè</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link rel="icon" href="https://res.cloudinary.com/dnnc9hxyi/image/upload/v1773614090/logo_bnxdab.png">
+</head>
+<body>
+
+  <div class="signup-wrapper">
+
+    <div class="signup-card">
+      <h1 class="brand">Mirvè</h1>
+      <p class="subtitle">Create your account</p>
+
+      <label>Full Name</label>
+      <input id="name" type="text" placeholder="Enter your full name">
+
+      <label>Email</label>
+      <input id="email" type="email" placeholder="Enter your email">
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Create a password">
+
+      <!-- INLINE MESSAGE -->
+      <p id="signup-message" class="signup-message"></p>
+
+      <!-- IMPORTANT: ID unchanged -->
+      <button id="signupBtn" class="signup-btn">
+        Signup
+      </button>
+
+      <p class="login-text">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+  const signupBtn = document.getElementById("signupBtn");
+  const messageEl = document.getElementById("signup-message");
+
+  signupBtn.addEventListener("click", async () => {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    messageEl.style.display = "none";
+    messageEl.className = "signup-message";
+
+    if (!name || !email || !password) {
+      messageEl.textContent = "All fields are required";
+      messageEl.classList.add("error");
+      messageEl.style.display = "block";
+      return;
+    }
+
+    // 🔄 Loading ON
+    signupBtn.classList.add("loading");
+    signupBtn.innerHTML = `<span class="spinner"></span> Creating account`;
+
+    try {
+      const res = await fetch("http://localhost:5000/api/users/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        messageEl.textContent = "Signup successful! Redirecting to login…";
+        messageEl.classList.add("success");
+        messageEl.style.display = "block";
+
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1200);
+      } else {
+        throw new Error(data.message || "Signup failed");
+      }
+    } catch (err) {
+      messageEl.textContent = err.message || "Server error";
+      messageEl.classList.add("error");
+      messageEl.style.display = "block";
+
+      // 🔄 Loading OFF
+      signupBtn.classList.remove("loading");
+      signupBtn.innerHTML = "Signup";
+    }
+  });
+</script>
+
+</body>
+</html>

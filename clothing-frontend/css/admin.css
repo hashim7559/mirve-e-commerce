@@ -1,0 +1,532 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.admin-section {
+    padding-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ===== Header and navbar ++++++*/
+
+/* Header container */
+.admin-header {
+  padding: 16px 12px 0;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Top row */
+.header-top {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  position: relative;
+
+}
+
+/* Profile image */
+.admin-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  position: absolute;
+  left: 16px;
+}
+
+/* Brand name */
+.header-top h1 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+/* Nav bar */
+.admin-nav {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Nav buttons */
+.nav-btn {
+  background: #e6eadb;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 14px 14px 0 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s ease;
+}
+
+/* Active tab */
+.nav-btn.active {
+  background: #cfd6bf;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Remove outline on click */
+.nav-btn:focus {
+  outline: none;
+}
+
+
+
+
+/* ===== ORDERS UI ===== */
+
+.order-card {
+    background: #dfe2d3;
+    border-radius: 18px;
+    padding: 14px;
+    margin: 14px;
+}
+
+.order-layout {
+    display: flex;
+    gap: 12px;
+}
+
+.order-left {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.order-right {
+    flex: 1;
+    background: #b9bea6;
+    border-radius: 14px;
+    padding: 10px;
+    font-size: 13px;
+}
+
+.order-right ul {
+    padding-left: 16px;
+    margin: 6px 0 0;
+}
+
+.order-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.order-actions button {
+    flex: 1;
+    padding: 8px;
+    border-radius: 14px;
+    border: none;
+    background: #a3a87e;
+    font-size: 13px;
+}
+
+
+
+/* ===== ADD PRODUCT PANEL (FIGMA MATCH) ===== */
+
+.add-product-card {
+    background: #dfe3d4;
+    border-radius: 18px;
+    padding: 14px;
+    margin: 14px;
+}
+
+.add-product-card h2 {
+    margin-top: 0;
+}
+
+.add-product-card label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.add-product-card input,
+.add-product-card textarea,
+.add-product-card select {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 12px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+}
+
+/* Variants */
+.variantRow {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.variantRow select,
+.variantRow input {
+    flex: 1;
+}
+
+/* Image preview */
+#imagePreviewContainer {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+/* Buttons */
+.primary-btn {
+    width: 100%;
+    background: #b7c0a3;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.ghost-btn {
+    background: none;
+    border: none;
+    color: #555;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+/* All products */
+.section-title {
+    margin: 18px 0 10px;
+}
+
+.admin-product-card {
+    background: #dfe3d4;
+    border-radius: 18px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.admin-product-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+
+/* ===== FORM ROW (FIGMA STYLE) ===== */
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-row label {
+    width: 90px;
+    /* aligns all labels */
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    flex: 1;
+    max-width: 220px;
+    /* 🔥 prevents full-width */
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    font-size: 14px;
+}
+
+.form-row textarea {
+    height: 60px;
+    resize: none;
+}
+
+
+/* ===== VARIANTS (FIGMA STYLE) ===== */
+
+.variantRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.variantRow span {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+.variantSize {
+    width: 60px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.variantStock {
+    width: 140px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+}
+
+/* Add another size button */
+#variantsContainer+button {
+    margin-top: 10px;
+    padding: 6px 14px;
+    border-radius: 18px;
+    background: #c9cfbf;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+
+/* ===== FILE UPLOAD (FIGMA STYLE) ===== */
+
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.file-btn {
+    background: #c9cfbf;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+.file-btn:hover {
+    background: #bfc6b0;
+}
+
+#fileCount {
+    font-size: 13px;
+    color: #555;
+}
+
+
+/* ===== PRODUCT CARD UI ===== */
+
+.product-card-ui {
+    background: #dfe3d5;
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+/* IMAGE */
+.product-img {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* RIGHT CONTENT */
+.product-info {
+    flex: 1;
+}
+
+.product-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.category {
+    font-weight: 600;
+    margin: 4px 0 10px;
+}
+
+/* INPUT ROWS */
+.field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.variant-row {
+     display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.field-row label,
+.variant-row label {
+    width: 90px;
+    font-size: 14px;
+}
+
+.field-row input,
+.variant-row input,
+.field-row textarea,
+.variant-row select {
+    flex: 1;
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    margin-bottom: 10px;
+}
+
+.variant-row select {
+    max-width: 50px;
+    margin-left: 10px;
+}
+
+.variant-row input {
+    max-width: 30px;
+    margin-left: 10px;
+}
+
+/* BUTTONS */
+.btn-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn-update {
+    background: #9da873;
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* INVENTORY UI */
+
+.inventory-card {
+    background: #dfe3d5;
+    border-radius: 14px;
+    padding: 14px;
+    margin: 14px;
+}
+
+.inventory-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.inventory-header img {
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.inventory-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.inventory-header p {
+    margin: 2px 0 0;
+    font-size: 20px;
+}
+
+/* Variant rows */
+.variant-row {
+    display: grid;
+    grid-template-columns: 80px 120px 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+/* Size */
+.variant-size span {
+    border: 1px solid #aaa;
+    padding: 2px 10px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+/* Stock input */
+.variant-stock input {
+    width: 60px;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    text-align: center;
+    background: #fff;
+}
+
+
+/* Status colors */
+.variant-status {
+    font-weight: bold;
+}
+
+.variant-status.ok {
+    color: green;
+}
+
+.variant-status.low-stock {
+    color: orange;
+}
+
+.variant-status.out-of-stock {
+    color: red;
+}
+
+
+
+.user-card {
+    background: #e6eadb;
+    border-radius: 14px;
+    padding: 14px;
+    margin: 14px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .admin-nav button {
+    font-size: 12px;
+  }
+}
